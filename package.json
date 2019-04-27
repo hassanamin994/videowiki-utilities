@@ -1,0 +1,23 @@
+{
+  "name": "videowiki-utilities",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hassanamin994/videowiki-utilities.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hassanamin994/videowiki-utilities/issues"
+  },
+  "homepage": "https://github.com/hassanamin994/videowiki-utilities#readme",
+  "dependencies": {
+    "dotenv": "^7.0.0",
+    "mongoose": "^5.5.4"
+  }
+}
