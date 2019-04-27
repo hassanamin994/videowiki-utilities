@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-require('mongoose-long')(mongoose)
 const Schema = mongoose.Schema
 
 const ArticleSchema = new Schema({

@@ -1,10 +1,10 @@
-import User from './User';
-import Article from './Article';
-import Video from './Video';
-import UploadFormTemplate from './UploadFormTemplate';
-import Humanvoice from './HumanVoice';
+const User = require('./User');
+const Article = require('./Article');
+const Video = require('./Video');
+const UploadFormTemplate = require('./UploadFormTemplate');
+const Humanvoice = require('./HumanVoice');
 
-export {
+module.exports = {
   User,
   Article,
   Video,

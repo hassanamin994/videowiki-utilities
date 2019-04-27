@@ -7,10 +7,15 @@ const args = process.argv.slice(2);
 const lang = args[0];
 
 const { Article, Video, UploadFormTemplate, Humanvoice } = require('./models');
-
-mongoose.connect(`${DB_CONNECTION_URL}-${lang}`) // connect to our mongoDB database //TODO: !AA: Secure the DB with authentication keys
+const dbCOnnection = `${DB_CONNECTION_URL}-${lang}`;
+mongoose.connect(dbCOnnection) // connect to our mongoDB database //TODO: !AA: Secure the DB with authentication keys
 
 const requiredTitles = [
+	'Wikipedia:VideoWiki/Dengue_fever_2_minute_overview',
+	'Wikipedia:VideoWiki/Pneumonia_2_min_overview',
+	'Wikipedia:VideoWiki/Typhoid_fever_2_min_overview',
+	'Wikipedia:VideoWiki/Cancer_2_min_overview',
+	'Wikipedia:VideoWiki/Measles_2_min_overview',
 	'Wikipedia:VideoWiki/Periodontitis',
 	'Wikipedia:VideoWiki/Dengue_fever_overview',
 	'Wikipedia:VideoWiki/Pneumonia_overview',
@@ -34,13 +39,14 @@ const requiredTitles = [
 
 function deleteAllArticlesExcept(requiredTitles) {
 	const condition = { title: { $nin: requiredTitles } };
-	Video.remove(condition, (err, result) => {
+	console.log(condition)
+	Video.deleteMany(condition, (err, result) => {
 		console.log('remove videos', err, result);
-		UploadFormTemplate.remove(condition, (err, result) => {
+		UploadFormTemplate.deleteMany(condition, (err, result) => {
 			console.log('remove uploadformtemplate', err, result);
-			Humanvoice.remove(condition, (err, result) => {
+			Humanvoice.deleteMany(condition, (err, result) => {
 				console.log('human voide remove', err, result);
-				Article.remove(condition, (err, result) => {
+				Article.deleteMany(condition, (err, result) => {
 					console.log('remove articles', err, result);
 				})
 			})
@@ -48,4 +54,4 @@ function deleteAllArticlesExcept(requiredTitles) {
 	})
 }
 
-// deleteAllArticlesExcept(requiredTitles.map(t => decodeURIComponent(t)));
+deleteAllArticlesExcept(requiredTitles.map(t => decodeURIComponent(t)));
