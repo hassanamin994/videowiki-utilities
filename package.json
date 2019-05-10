@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/hassanamin994/videowiki-utilities#readme",
   "dependencies": {
+    "amqplib": "^0.5.3",
     "dotenv": "^7.0.0",
     "mongoose": "^5.5.4"
   }
