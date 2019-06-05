@@ -116,7 +116,7 @@ function updateArticlesMediaAndDurations() {
 }
 
 function updateHumanvoiceDurations() {
-  Humanvoice.find({_id: "5cf19a37872237539240ac8b"})
+  Humanvoice.find({})
   .populate('user')
   .lean()
   .exec((err, humanvoices) => {
@@ -166,6 +166,6 @@ function updateHumanvoiceDurations() {
 
 mongoose.connect(dbCOnnection, (err) => {
   console.log(err);
-  updateArticlesMediaAndDurations();
-  // updateHumanvoiceDurations();
+  // updateArticlesMediaAndDurations();
+  updateHumanvoiceDurations();
 })
