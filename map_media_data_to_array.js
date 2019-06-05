@@ -116,10 +116,11 @@ function updateArticlesMediaAndDurations() {
 }
 
 function updateHumanvoiceDurations() {
-  Humanvoice.find({})
+  Humanvoice.find({_id: "5cf19a37872237539240ac8b"})
   .populate('user')
   .lean()
   .exec((err, humanvoices) => {
+    console.log('human voices', humanvoices.length)
     if (err) return console.log('error applying on human voice', err);
     if (!humanvoices) return console.log('no human voices');
     const humanvoiceUpdateFunc = [];
@@ -128,7 +129,7 @@ function updateHumanvoiceDurations() {
 
       humanvoiceUpdateFunc.push((cb) => {
         const audioUpdateFunc = [];
-
+        console.log('total audios', humanvoice.audios.length)
         humanvoice.audios.forEach((audio, index) => {
           audioUpdateFunc.push((singleCB) => {
             getRemoteFileDuration(audio.audioURL, (err, duration) => {
@@ -143,7 +144,7 @@ function updateHumanvoiceDurations() {
           })
         })
 
-        async.parallelLimit(audioUpdateFunc, 3, (err) => {
+        async.parallelLimit(audioUpdateFunc, 5, (err) => {
           if (err) {
             console.log('error ', err);
             return cb();
@@ -165,6 +166,6 @@ function updateHumanvoiceDurations() {
 
 mongoose.connect(dbCOnnection, (err) => {
   console.log(err);
-  // updateArticlesMediaAndDurations();
+  updateArticlesMediaAndDurations();
   // updateHumanvoiceDurations();
 })
