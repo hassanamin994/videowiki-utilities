@@ -17,10 +17,13 @@
   },
   "homepage": "https://github.com/hassanamin994/videowiki-utilities#readme",
   "dependencies": {
+    "@google-cloud/text-to-speech": "^1.1.0",
     "amqplib": "^0.5.3",
+    "aws-sdk": "^2.469.0",
     "dotenv": "^7.0.0",
     "mongoose": "^5.5.4",
     "mp3-duration": "^1.1.0",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "uuid": "^3.3.2"
   }
 }
