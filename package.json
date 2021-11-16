@@ -19,7 +19,7 @@
   "dependencies": {
     "@google-cloud/text-to-speech": "^1.1.0",
     "amqplib": "^0.5.3",
-    "aws-sdk": "^2.469.0",
+    "aws-sdk": "^2.814.0",
     "dotenv": "^7.0.0",
     "mongoose": "^5.5.4",
     "mp3-duration": "^1.1.0",
